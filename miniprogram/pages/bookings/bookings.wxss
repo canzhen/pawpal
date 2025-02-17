@@ -1,0 +1,136 @@
+.container {
+    min-height: 100vh;
+    background: #f7f7f7;
+    padding-bottom: 40rpx;
+   }
+   
+   .tab-header {
+    display: flex;
+    background: #fff;
+    padding: 20rpx 0;
+    margin-bottom: 20rpx;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+   }
+   
+   .tab {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+    padding: 16rpx 0;
+    position: relative;
+   }
+   
+   .tab.active {
+    color: #1296db;
+    font-weight: 500;
+   }
+   
+   .tab.active:after {
+    content: '';
+    position: absolute;
+    bottom: -10rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40rpx;
+    height: 4rpx;
+    background: #1296db;
+    border-radius: 2rpx;
+   }
+   
+   .booking-list {
+    padding: 0 20rpx;
+   }
+   
+   .booking-card {
+    background: #fff;
+    border-radius: 12rpx;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+   }
+   
+   .status-bar {
+    padding: 12rpx 20rpx;
+    font-size: 24rpx;
+    color: #fff;
+   }
+   
+   .status-bar.pending {
+    background: #ffa500;
+   }
+   
+   .status-bar.confirmed {
+    background: #1296db;
+   }
+   
+   .status-bar.completed {
+    background: #52c41a;
+   }
+   
+   .booking-info {
+    padding: 20rpx;
+    display: flex;
+    border-bottom: 1rpx solid #f0f0f0;
+   }
+   
+   .sitter-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+   }
+   
+   .details {
+    flex: 1;
+   }
+   
+   .sitter-name {
+    font-size: 32rpx;
+    font-weight: 500;
+    margin-bottom: 8rpx;
+   }
+   
+   .service-type, .date, .address {
+    font-size: 26rpx;
+    color: #666;
+    margin-bottom: 6rpx;
+   }
+   
+   .price {
+    font-size: 30rpx;
+    color: #ff4d4f;
+    font-weight: 500;
+   }
+   
+   .action-buttons {
+    padding: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20rpx;
+   }
+   
+   .btn {
+    font-size: 26rpx;
+    padding: 12rpx 30rpx;
+    border-radius: 6rpx;
+    background: #fff;
+   }
+   
+   .btn.cancel {
+    color: #666;
+    border: 1rpx solid #d9d9d9;
+   }
+   
+   .btn.contact {
+    color: #1296db;
+    border: 1rpx solid #1296db;
+   }
+   
+   .btn.review {
+    color: #fff;
+    background: #1296db;
+    border: none;
+   }

@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- Tab Header -->
+  <view class="tab-header">
+    <view class="tab {{currentTab === 'upcoming' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="upcoming">
+      待服务
+    </view>
+    <view class="tab {{currentTab === 'completed' ? 'active' : ''}}" 
+          bindtap="switchTab" 
+          data-tab="completed">
+      已完成
+    </view>
+  </view>
+
+  <!-- Booking List -->
+  <view class="booking-list">
+    <view class="booking-card" 
+          wx:for="{{bookings}}" 
+          wx:key="id"
+          wx:if="{{currentTab === 'upcoming' ? item.status !== 'completed' : item.status === 'completed'}}">
+      <view class="status-bar {{item.status}}">{{item.statusText}}</view>
+      
+      <view class="booking-info">
+        <image class="sitter-avatar" src="{{item.sitterAvatar}}" mode="aspectFill"></image>
+        <view class="details">
+          <view class="sitter-name">{{item.sitterName}}</view>
+          <view class="service-type">{{item.serviceType}}</view>
+          <view class="date">{{item.date}}</view>
+          <view class="address">{{item.address}}</view>
+          <view class="price">¥{{item.price}}</view>
+        </view>
+      </view>
+
+      <view class="action-buttons">
+        <block wx:if="{{item.status === 'pending'}}">
+          <button class="btn cancel" bindtap="cancelBooking" data-id="{{item.id}}">取消预约</button>
+          <button class="btn contact" bindtap="contactSitter" data-id="{{item.id}}">联系保姆</button>
+        </block>
+        <block wx:if="{{item.status === 'confirmed'}}">
+          <button class="btn contact" bindtap="contactSitter" data-id="{{item.id}}">联系保姆</button>
+        </block>
+        <block wx:if="{{item.status === 'completed'}}">
+          <button class="btn review" bindtap="writeReview" data-id="{{item.id}}">写评价</button>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

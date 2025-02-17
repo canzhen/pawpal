@@ -1,0 +1,46 @@
+{
+    "pages": [
+      "pages/index/index",
+      "pages/bookings/bookings",
+      "pages/messages/messages",
+      "pages/profile/profile"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "宠遛",
+      "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+      "color": "#999999",
+      "selectedColor": "#1296db",
+      "backgroundColor": "#ffffff",
+      "borderStyle": "black",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "images/home.png",
+          "selectedIconPath": "images/home-active.png"
+        },
+        {
+          "pagePath": "pages/bookings/bookings",
+          "text": "预约",
+          "iconPath": "images/booking.png",
+          "selectedIconPath": "images/booking-active.png"
+        },
+        {
+          "pagePath": "pages/messages/messages",
+          "text": "消息",
+          "iconPath": "images/message.png",
+          "selectedIconPath": "images/message-active.png"
+        },
+        {
+          "pagePath": "pages/profile/profile",
+          "text": "我的",
+          "iconPath": "images/profile.png",
+          "selectedIconPath": "images/profile-active.png"
+        }
+      ]
+    }
+  }

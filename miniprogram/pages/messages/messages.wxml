@@ -1,0 +1,35 @@
+<view class="container">
+ <!-- 消息列表 -->
+ <view class="message-list">
+   <view class="message-item" 
+         wx:for="{{messages}}" 
+         wx:key="id" 
+         bindtap="goToChat" 
+         data-id="{{item.id}}"
+         data-sitter="{{item.sitterName}}">
+     
+     <!-- 头像和未读消息提示 -->
+     <view class="avatar-container">
+       <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+       <view class="unread-badge" wx:if="{{item.unreadCount > 0}}">
+         {{item.unreadCount}}
+       </view>
+     </view>
+
+     <!-- 消息内容 -->
+     <view class="content">
+       <view class="header">
+         <text class="name">{{item.sitterName}}</text>
+         <text class="time">{{item.lastTime}}</text>
+       </view>
+       <view class="message">{{item.lastMessage}}</view>
+     </view>
+   </view>
+ </view>
+
+ <!-- 空状态展示 -->
+ <view class="empty-state" wx:if="{{messages.length === 0}}">
+   <image src="/images/empty-messages.png" mode="aspectFit"></image>
+   <text>暂无消息</text>
+ </view>
+</view>
