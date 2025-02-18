@@ -43,9 +43,9 @@
 - Server side code is in `cloudfunctions/` / 服务端代码在 `cloudfunctions/` 目录
 
 ## Previews 预览
-| Home Page 首页 | Chat 聊天 | Booking 预订 | 
+| Home Page 首页 | Booking 预订 | Chat 聊天 |
 | --- | --- | --- |
-| <img width="389" alt="image" src="https://github.com/user-attachments/assets/01774ce7-4ad0-473b-a983-e1c8cd25b457" /> | <img width="394" alt="image" src="https://github.com/user-attachments/assets/b7cf04d5-7fe8-49df-ba30-78468c264772" /> | <img width="390" alt="image" src="https://github.com/user-attachments/assets/e042fe52-3816-4bb8-9e25-5ef5e9029ee1" /> | 
+| <img width="389" alt="image" src="https://github.com/user-attachments/assets/01774ce7-4ad0-473b-a983-e1c8cd25b457" /> | <img width="390" alt="image" src="https://github.com/user-attachments/assets/e042fe52-3816-4bb8-9e25-5ef5e9029ee1" /> | <img width="394" alt="image" src="https://github.com/user-attachments/assets/b7cf04d5-7fe8-49df-ba30-78468c264772" /> |
 
 
 ## Demo 
