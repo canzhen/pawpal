@@ -1,41 +1,30 @@
 Page({
     data: {
       currentTab: 'upcoming',
-      bookings: [
-        {
-          id: 1,
-          status: 'pending',
-          statusText: '待确认',
-          sitterName: '张阿姨',
-          sitterAvatar: '/images/avatar1.png',
-          serviceType: '寄养',
-          date: '2024-02-20 - 2024-02-25',
-          price: 120,
-          address: '海淀区五道口'
-        },
-        {
-          id: 2,
-          status: 'confirmed',
-          statusText: '已确认',
-          sitterName: '李叔叔',
-          sitterAvatar: '/images/avatar2.png',
-          serviceType: '遛狗',
-          date: '2024-02-18',
-          price: 80,
-          address: '朝阳区望京'
-        },
-        {
-          id: 3,
-          status: 'completed',
-          statusText: '已完成',
-          sitterName: '王奶奶',
-          sitterAvatar: '/images/avatar3.png',
-          serviceType: '寄养',
-          date: '2024-02-10 - 2024-02-15',
-          price: 600,
-          address: '西城区西直门'
+      bookings: []
+    },
+
+    async loadBookings() {
+        try {
+            const { result } = await wx.cloud.callFunction({
+                name: 'getBookings',
+                data: {
+                    "phone_number": "4848629350"
+                }
+            })
+            console.log('bookings: ', result.data)
+            this.setData({ bookings: result.data })
+        } catch (err) {
+            console.error(err)
+            wx.showToast({
+                title: '加载失败',
+                icon: 'none'
+            })
         }
-      ]
+    },
+
+    onLoad: function() {
+        this.loadBookings()
     },
    
     switchTab(e) {

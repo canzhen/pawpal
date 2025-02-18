@@ -19,7 +19,7 @@
     text-align: center;
     font-size: 28rpx;
     color: #666;
-    padding: 16rpx 0;
+    padding: 16rpx 16rpx;
     position: relative;
    }
    
