@@ -7,6 +7,8 @@ const db = app.database();
 exports.main = async (event, context) => {
     console.log('收到参数：', event)
     const { phone_number } = event
+    const _ = db.command
+
     try {
         // 1. get useId based on phone number
         const userRes = await db.collection('users')
@@ -39,14 +41,11 @@ exports.main = async (event, context) => {
         const petIds = petOwnersRes.data[0].petIds
 
         // 3. find bookings given petIds
-        // const bookingsRes = await db.collection('bookings')
-        //   .where({ petId: _.in(petIds) })
-        //   .get()
         const bookingsRes = await db.collection('bookings')
-            .where({ petId: "0b732e7f67b3f424011f5ae7242026cc" })
-            .get()
+          .where({ petId: _.in(petIds) })
+          .get()
 
-         // 如果没有 bookings，返回空数组
+        // 如果没有 bookings，返回空数组
         if (bookingsRes.data.length === 0) {
             return {
             code: 200,
@@ -60,7 +59,6 @@ exports.main = async (event, context) => {
           msg: '查询成功',
           data: bookingsRes.data,
         }
-    
       } catch (err) {
         return {
           code: 500,
