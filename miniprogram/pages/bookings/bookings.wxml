@@ -32,7 +32,7 @@
             <block wx:else>{{item.serviceType}}</block>
           </view>
           <block wx:if="{{item.date}}">
-            <view class="date">{item.date}}</view>
+            <view class="date">{{item.date}}</view>
           </block>
           <block wx:if="{{item.dateFrom}}">
             <view class="date">{{item.dateFrom}} - {{item.dateEnd}}</view>

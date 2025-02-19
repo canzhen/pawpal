@@ -1,13 +1,14 @@
 <view class="container">
  <!-- 用户信息头部 -->
  <view class="user-header">
-   <view class="user-info">
-     <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
-     <view class="info">
-       <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
-       <text class="user-type">{{userInfo.isSitter ? '宠物保姆' : '宠物主人'}}</text>
-     </view>
-   </view>
+    <view class="user-info" bindtap="{{!isLogin ? 'handleLogin' : ''}}">
+        <image class="avatar" src="{{isLogin ? userInfo.avatarUrl : '/images/default-avatar.png'}}" mode="aspectFill"></image>
+        <view class="info">
+        <text class="nickname">{{isLogin ? userInfo.nickName : '未登录'}}</text>
+        <text class="user-type">{{userInfo.isSitter ? '宠物保姆' : '宠物主人'}}</text>
+        <button wx:if="{{isLogin}}" class="logout-btn" bindtap="handleLogout">退出登录</button>
+        </view>
+    </view>
  </view>
 
  <!-- 功能菜单 -->
@@ -53,7 +54,7 @@
 
  <!-- 切换身份按钮 -->
  <view class="bottom-button" wx:if="{{!userInfo.isSitter}}">
-   <button class="become-sitter" bindtap="becomeSitter">成为宠物保姆</button>
+   <button class="become-sitter" bindtap="handleBecomePetsitter">成为宠物保姆</button>
  </view>
 
  <!-- 客服入口 -->
