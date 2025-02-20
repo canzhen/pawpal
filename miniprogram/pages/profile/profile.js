@@ -38,6 +38,7 @@ Page({
           const app = getApp();
           // 获取缓存中的用户信息
           const userInfo = wx.getStorageSync('userInfo');
+          console.log(userInfo);
           if (userInfo) {
             this.setData({
               userInfo,

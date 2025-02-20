@@ -2,7 +2,7 @@
     "pages": [
       "pages/index/index",
       "pages/bookings/bookings",
-      "pages/messages/messages",
+      "pages/conversations/conversations",
       "pages/profile/profile"
     ],
     "window": {
@@ -30,7 +30,7 @@
           "selectedIconPath": "images/booking-active.png"
         },
         {
-          "pagePath": "pages/messages/messages",
+          "pagePath": "pages/conversations/conversations",
           "text": "消息",
           "iconPath": "images/message.png",
           "selectedIconPath": "images/message-active.png"

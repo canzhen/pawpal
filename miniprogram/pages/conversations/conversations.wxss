@@ -3,11 +3,11 @@
     background: #f7f7f7;
    }
    
-   .message-list {
+   .conversation-list {
     padding: 0 20rpx;
    }
    
-   .message-item {
+   .conversation-item {
     display: flex;
     padding: 20rpx;
     background: #ffffff;
@@ -65,7 +65,7 @@
     color: #999;
    }
    
-   .message {
+   .conversation {
     font-size: 28rpx;
     color: #666;
     overflow: hidden;

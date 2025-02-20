@@ -22,23 +22,23 @@
       <view class="status-bar {{item.status}}">{{item.statusText}}</view>
       
       <view class="booking-info">
-        <image class="sitter-avatar" src="{{item.sitterAvatar}}" mode="aspectFill"></image>
+        <image class="sitter-avatar" src="{{item.sitter_avatar}}" mode="aspectFill"></image>
         <view class="details">
-          <view class="sitter-name">{{item.sitterName}}</view>
+          <view class="sitter-name">{{item.sitter_name}}</view>
           <view class="service-type">
-            <block wx:if="{{item.serviceType === 'boarding'}}">宠物寄养</block>
-            <block wx:elif="{{item.serviceType === 'walking'}}">遛狗散步</block>
-            <block wx:elif="{{item.serviceType === 'pickup'}}">接送服务</block>
+            <block wx:if="{{item.service_type === 'boarding'}}">宠物寄养</block>
+            <block wx:elif="{{item.service_type === 'walking'}}">遛狗散步</block>
+            <block wx:elif="{{item.service_type === 'pickup'}}">接送服务</block>
             <block wx:else>{{item.serviceType}}</block>
           </view>
           <block wx:if="{{item.date}}">
             <view class="date">{{item.date}}</view>
           </block>
-          <block wx:if="{{item.dateFrom}}">
-            <view class="date">{{item.dateFrom}} - {{item.dateEnd}}</view>
+          <block wx:if="{{item.date_from}}">
+            <view class="date">{{item.date_from}} - {{item.date_end}}</view>
           </block>
           <view class="address">{{item.address}}</view>
-          <view class="price">¥{{item.priceCents/100}}</view>
+          <view class="price">¥{{item.price_cents/100}}</view>
         </view>
       </view>
 

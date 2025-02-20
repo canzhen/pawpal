@@ -1,36 +1,49 @@
 Page({
     data: {
-      messages: [
-        {
-          id: 1,
-          sitterName: '张阿姨',
-          avatar: '/images/avatar1.png',
-          lastMessage: '好的，我会准时到达的，请不用担心',
-          lastTime: '10:30',
-          unreadCount: 2
-        },
-        {
-          id: 2,
-          sitterName: '李叔叔',
-          avatar: '/images/avatar2.png',
-          lastMessage: '狗狗今天很乖，我带他去公园玩了',
-          lastTime: '昨天',
-          unreadCount: 0
-        },
-        {
-          id: 3,
-          sitterName: '王奶奶',
-          avatar: '/images/avatar3.png',
-          lastMessage: '已经给小猫洗完澡了，一切顺利',
-          lastTime: '星期一',
-          unreadCount: 1
+        conversations: [],
+        inputValue: '',
+        conversationId: ''
+    },
+
+    async loadConversations() {
+        try {
+          const { result } = await wx.cloud.callFunction({
+            name: 'getConversationList'
+          })
+    
+          if (result.error) {
+            throw new Error(result.error)
+          }
+    
+          this.setData({
+            conversations: result.conversations
+          })
+        } catch (error) {
+          wx.showToast({
+            title: '加载失败',
+            icon: 'none'
+          })
         }
-      ]
+    },
+
+    async loadMessages() {
+        const { result } = await wx.cloud.callFunction({
+          name: 'handleChat',
+          data: {
+            type: 'getMessages',
+            conversationId: this.data.conversationId
+          }
+        })
+    
+        if (result.messages) {
+          this.setData({
+            messages: result.messages
+          })
+        }
     },
    
     onLoad: function() {
-      // 可以在这里从服务器获取消息列表
-      // this.loadMessages()
+        this.loadConversations();
     },
    
     goToChat: function(e) {
